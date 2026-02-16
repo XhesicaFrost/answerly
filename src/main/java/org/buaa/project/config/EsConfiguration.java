@@ -25,12 +25,18 @@ public class EsConfiguration {
     @Value("${elasticsearch.index-name}")
     private String INDEX_NAME;
 
+    @Value("${spring.elasticsearch.username}")
+    private String username;
+
+    @Value("${spring.elasticsearch.password}")
+    private String password;
+
     @Bean
     public RestHighLevelClient restHighLevelClient() throws IOException{
         CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
         credentialsProvider.setCredentials(
                 org.apache.http.auth.AuthScope.ANY,
-                new UsernamePasswordCredentials("elastic", "elastic")
+                new UsernamePasswordCredentials(username, password)
         );
         RestHighLevelClient client = new RestHighLevelClient(
                 RestClient.builder(new HttpHost(elasticsearchHost, 9200, "http"))
