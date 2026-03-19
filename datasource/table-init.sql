@@ -10,7 +10,7 @@ CREATE TABLE `user` (
                         `password`      varchar(512) NOT NULL COMMENT '密码',
                         `mail`          varchar(30)  NOT NULL COMMENT '邮箱',
                         `salt`          varchar(20)  NOT NULL COMMENT '盐',
-                        `avatar`        varchar(60)     DEFAULT NULL COMMENT '头像',
+                        `avatar`        varchar(1024)     DEFAULT NULL COMMENT '头像',
                         `phone`         varchar(20)     DEFAULT NULL COMMENT '手机号',
                         `introduction`  varchar(1024)   DEFAULT NULL COMMENT '个人简介',
                         `like_count`    int(11)         DEFAULT 0 COMMENT '点赞数',
